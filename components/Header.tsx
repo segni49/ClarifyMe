@@ -10,17 +10,18 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-gradient-to-br from-[#0F4C5C] via-[#6C2DC7] to-[#1A1A1A] shadow-lg animate-fadeInUp">
       <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 group">
           <Image
             src="/favicon.ico"
             alt="ClarifyMe Logo"
             width={32}
             height={32}
+            className="group-hover:scale-110 transition-transform duration-150"
           />
-          <span className="font-bold text-lg tracking-tight text-white">
+          <span className="font-bold text-lg tracking-tight text-white group-hover:text-[#2ED3B2] transition-colors duration-150">
             ClarifyMe
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8">

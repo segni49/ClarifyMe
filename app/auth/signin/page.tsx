@@ -14,7 +14,7 @@ export default function SignInPage() {
             complex topics, generate quizzes, and track your learning journey.
           </p>
           <button
-            onClick={() => signIn("google")}
+            onClick={() => signIn("google", { callbackUrl: "/clarify" })}
             className="px-8 py-4 bg-[#6C2DC7] text-white rounded-xl font-bold shadow-lg hover:bg-[#2ED3B2] transition-all text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F4C5C] animate-scaleIn"
           >
             Sign in with Google

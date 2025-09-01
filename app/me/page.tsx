@@ -46,7 +46,7 @@ export default function MePage() {
               </div>
             ) : (
               <Link
-                href="/api/billing/subscribe"
+                href="/billing/subscribe"
                 className="px-8 py-4 bg-[#6C2DC7] text-white rounded-xl font-bold shadow-lg hover:bg-[#2ED3B2] transition-all mt-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F4C5C] animate-scaleIn text-lg"
               >
                 Upgrade to PRO

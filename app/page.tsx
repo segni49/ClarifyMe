@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function HomePage() {
+  // Server Component: cannot use useSWR or client hooks
   return (
     <main className="w-full min-h-screen font-sans tracking-wide leading-relaxed flex flex-col text-[#1A1A1A] bg-[#FFFFFF]">
       {/* Hero Section – Always Visible */}
@@ -104,7 +105,7 @@ export default function HomePage() {
                 $10/mo
               </span>
               <Link
-                href="/api/billing/subscribe"
+                href="/billing/subscribe"
                 className="px-8 py-3 bg-[#6C2DC7] text-white rounded-xl font-bold shadow-lg hover:bg-[#2ED3B2] transition-all mt-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F4C5C]"
               >
                 Upgrade to PRO
