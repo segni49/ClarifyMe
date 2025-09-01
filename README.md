@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ClarifyMe
 
-## Getting Started
+![ClarifyMe Logo](public/globe.svg)
 
-First, run the development server:
+**Your AI-powered platform for learning, journaling, and personal growth.**
+
+---
+
+## 🚀 Live Demo
+
+[ClarifyMe Live Demo](https://clarifyme.app)
+
+## 🛠 Tech Stack
+
+- Next.js 15+ (App Router)
+- TypeScript
+- Tailwind CSS
+- Prisma ORM
+- Neon.tech (PostgreSQL)
+- NextAuth.js (Authentication)
+- Chapa (Payments)
+
+## ✨ Features
+
+- AI Summarization
+- Interactive Quizzes
+- Personal Journal
+- Smart Recommendations
+- Secure Authentication (Google, Email)
+- Payment Integration (Chapa)
+- Affiliate Content (Amazon, Udemy, Coursera)
+
+## 📦 Installation
 
 ```bash
+git clone https://github.com/your-org/clarifyme.git
+cd clarifyme
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env` file in the root directory and set:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+DATABASE_URL=...           # PostgreSQL connection string (Neon.tech)
+NEXTAUTH_SECRET=...        # NextAuth.js secret
+NEXTAUTH_URL=...           # Base URL of your app
+GOOGLE_CLIENT_ID=...       # Google OAuth client ID
+GOOGLE_CLIENT_SECRET=...   # Google OAuth client secret
+HUGGINGFACE_API_KEY=...    # HuggingFace API key for AI features
+CHAPA_SECRET_KEY=...       # Chapa payment secret key
+CHAPA_CALLBACK_URL=...     # Chapa payment callback URL
+AMAZON_ACCESS_KEY_ID=...   # Amazon affiliate access key
+AMAZON_SECRET_ACCESS_KEY=... # Amazon affiliate secret key
+AMAZON_ASSOCIATE_TAG=...   # Amazon affiliate tag
+UDEMY_API_KEY=...          # Udemy affiliate API key
+COURSERA_API_KEY=...       # Coursera affiliate API key
+AFFILIATE_PARTNER_ID=...   # Affiliate partner ID
+```
 
-## Learn More
+## 📁 Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/           # Next.js app router pages & API routes
+components/    # React UI components
+lib/           # Utility libraries (auth, payment, etc.)
+prisma/        # Prisma schema & migrations
+public/        # Static assets (logo, icons)
+styles/        # Global and animation CSS
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Fork the repo and create a feature branch
+- Follow code style and naming conventions
+- Submit a pull request with a clear description
+- All contributions are reviewed before merging
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MIT License. See [LICENSE](LICENSE) for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact & Support
+
+- Email: [support@clarifyme.app](mailto:support@clarifyme.app)
+- Issues: [GitHub Issues](https://github.com/your-org/clarifyme/issues)
