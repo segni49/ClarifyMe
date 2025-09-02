@@ -4,37 +4,24 @@
 
 /* ClarifyMe 2025 Color System */
 :root {
-  --clr-primary: #6C2DC7;
-  --clr-primary-dark: #4B1A8F;
-  --clr-secondary: #2ED3B2;
-  --clr-secondary-dark: #1A8F7A;
-  --clr-bg: #F8FAFC;
-  --clr-bg-alt: #E5E7EB;
-  --clr-surface: #FFFFFF;
-  --clr-surface-dark: #171717;
-  --clr-accent: #0F4C5C;
-  --clr-error: #8B1E3F;
-  --clr-success: #2ED3B2;
-  --clr-warning: #FBBF24;
-  --clr-info: #2563EB;
-  --clr-text: #171717;
-  --clr-text-light: #4B5563;
-  --clr-border: #D1D5DB;
-  --clr-shadow: rgba(108,45,199,0.08);
+  /* 2025 Color System — roles mapped to CSS variables */
+  --clr-primary: #0F4C5C; /* Navigation, headings, buttons */
+  --clr-accent: #6C2DC7; /* CTAs, highlights, links */
+  --clr-highlight: #2ED3B2; /* Hover states, active elements */
+  --clr-bg-light: #F9FAFB; /* Section backgrounds, cards */
+  --clr-bg-dark: #1A1A1A; /* Gradients, dark mode */
+  --clr-text-primary: #111827; /* Body text, titles */
+  --clr-text-muted: #4B5563; /* Descriptions, labels */
   --font-sans: 'Geist', 'Inter', 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
   --font-mono: 'Geist Mono', 'Courier New', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --clr-bg: #0A0A0A;
-    --clr-bg-alt: #171717;
-    --clr-surface: #171717;
-    --clr-surface-dark: #22223B;
-    --clr-text: #EDEDED;
-    --clr-text-light: #A1A1AA;
-    --clr-border: #33334D;
-    --clr-shadow: rgba(44,44,84,0.16);
+    --clr-bg-light: #1A1A1A;
+    --clr-bg-dark: #111827;
+    --clr-text-primary: #F9FAFB;
+    --clr-text-muted: #A1A1AA;
   }
 }
 
@@ -94,6 +81,22 @@ code, pre {
   transform: translateY(0);
 }
 
+::selection {
+  background-color: var(--clr-accent);
+  color: #fff;
+}
+
+/* Loading skeletons */
+.skeleton {
+  background: linear-gradient(90deg, var(--clr-bg-light) 25%, var(--clr-bg-dark) 50%, var(--clr-bg-light) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 /* Mobile-first base styles */
 html {
   scroll-behavior: smooth;
@@ -105,4 +108,13 @@ img, svg {
   display: block;
 }
 
-/* Remove all previous stylings and colors */
+button, input, textarea, select {
+  min-height: 48px;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  touch-action: manipulation;
+}
+
+a {
+  scroll-margin-top: 5rem; /* For fixed headers, e.g. scroll-mt-20 */
+}

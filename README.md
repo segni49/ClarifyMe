@@ -1,6 +1,6 @@
 # ClarifyMe
 
-![ClarifyMe Logo](public/globe.svg)
+![ClarifyMe Logo](public/icons/logo.svg)
 
 **Your AI-powered platform for learning, journaling, and personal growth.**
 

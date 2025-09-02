@@ -102,18 +102,22 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans min-h-screen flex flex-col bg-[var(--clr-bg)] text-[var(--clr-text)] transition-all`}
+        className={`
+          ${geistSans.variable} ${geistMono.variable} antialiased font-sans min-h-screen flex flex-col transition-all
+          bg-gradient-to-br from-[var(--clr-bg-light)] to-[var(--clr-bg-dark)]
+          text-[var(--clr-text-primary)]
+          dark:bg-gradient-to-br dark:from-[var(--clr-bg-dark)] dark:to-[var(--clr-bg-light)]
+        `}
       >
         <a href="#main-content" className="skip-link sr-only focus:not-sr-only">Skip to main content</a>
         <Providers>
           <Header />
           <main
             id="main-content"
-            className="flex-1 w-full flex flex-col items-center justify-start px-4 py-8 max-w-screen-xl mx-auto gap-8 animate-fadeInUp"
+            className="flex-1 w-full flex flex-col animate-fadeInUp"
             role="main"
             aria-label="Main content"
           >
-            {/* Vertical rhythm and responsive container */}
             <section className="w-full" role="region">
               {children}
             </section>

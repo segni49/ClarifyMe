@@ -7,12 +7,12 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--clr-surface)] shadow-lg border-b border-[var(--clr-border)] transition-all">
-      <nav className="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
+    <header className="sticky top-0 z-50 w-full bg-gradient-to-b from-[var(--clr-bg-light)] to-[var(--clr-bg-dark)] shadow-lg border-b border-[var(--clr-bg-dark)] backdrop-blur-xl transition-all">
+  <nav className="w-full flex items-center justify-between h-16 px-6" aria-label="Main navigation">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="ClarifyMe Home">
           <Image
-            src="/logo.svg"
+            src="/icons/logo.svg"
             alt="ClarifyMe Logo"
             width={32}
             height={32}
@@ -25,9 +25,9 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8 text-base font-medium">
-          <Link href="/clarify" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Clarify">Clarify</Link>
-          <Link href="/journal" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Journal">Journal</Link>
-          <Link href="/me" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Profile">Me</Link>
+          <Link href="/clarify" className="text-[var(--clr-accent)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Clarify">Clarify</Link>
+          <Link href="/journal" className="text-[var(--clr-accent)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Journal">Journal</Link>
+          <Link href="/me" className="text-[var(--clr-accent)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Profile">Me</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -65,9 +65,9 @@ export default function Header() {
                 <path d="M6 6l8 8M6 14L14 6" />
               </svg>
             </button>
-            <Link href="/clarify" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Clarify">Clarify</Link>
-            <Link href="/journal" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Journal">Journal</Link>
-            <Link href="/me" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Profile">Me</Link>
+            <Link href="/clarify" className="text-[var(--clr-accent)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Clarify">Clarify</Link>
+            <Link href="/journal" className="text-[var(--clr-accent)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Journal">Journal</Link>
+            <Link href="/me" className="text-[var(--clr-accent)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Profile">Me</Link>
           </div>
         </div>
       )}

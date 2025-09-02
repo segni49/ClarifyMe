@@ -3,11 +3,11 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--clr-surface)] border-t border-[var(--clr-border)] text-[var(--clr-text-light)] py-10 px-4 w-full mt-auto transition-all">
-      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="bg-gradient-to-t from-[var(--clr-bg-dark)] to-[var(--clr-bg-light)] border-t border-[var(--clr-bg-dark)] text-[var(--clr-text-muted)] w-full mt-auto transition-all">
+  <div className="w-full flex flex-col md:flex-row justify-between items-center px-6">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="ClarifyMe Logo" width={36} height={36} />
+          <Image src="/icons/logo.svg" alt="ClarifyMe Logo" width={36} height={36} />
           <span className="font-bold text-2xl tracking-tight text-[var(--clr-accent)]">ClarifyMe</span>
         </div>
 
