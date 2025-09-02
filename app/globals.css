@@ -1,26 +1,108 @@
 
+
 @import "tailwindcss";
 
+/* ClarifyMe 2025 Color System */
 :root {
-  --background: #f8fafc;
-  --foreground: #171717;
+  --clr-primary: #6C2DC7;
+  --clr-primary-dark: #4B1A8F;
+  --clr-secondary: #2ED3B2;
+  --clr-secondary-dark: #1A8F7A;
+  --clr-bg: #F8FAFC;
+  --clr-bg-alt: #E5E7EB;
+  --clr-surface: #FFFFFF;
+  --clr-surface-dark: #171717;
+  --clr-accent: #0F4C5C;
+  --clr-error: #8B1E3F;
+  --clr-success: #2ED3B2;
+  --clr-warning: #FBBF24;
+  --clr-info: #2563EB;
+  --clr-text: #171717;
+  --clr-text-light: #4B5563;
+  --clr-border: #D1D5DB;
+  --clr-shadow: rgba(108,45,199,0.08);
+  --font-sans: 'Geist', 'Inter', 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+  --font-mono: 'Geist Mono', 'Courier New', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --clr-bg: #0A0A0A;
+    --clr-bg-alt: #171717;
+    --clr-surface: #171717;
+    --clr-surface-dark: #22223B;
+    --clr-text: #EDEDED;
+    --clr-text-light: #A1A1AA;
+    --clr-border: #33334D;
+    --clr-shadow: rgba(44,44,84,0.16);
   }
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.7;
   letter-spacing: 0.01em;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s, color 0.3s;
 }
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background-color: var(--clr-primary);
+  color: #fff;
+}
+
+/* Accessibility: Focus ring, visually hidden, skip link */
+.focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--clr-primary);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--clr-primary);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Mobile-first base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove all previous stylings and colors */

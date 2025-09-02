@@ -7,52 +7,37 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-to-br from-[#0F4C5C] via-[#6C2DC7] to-[#1A1A1A] shadow-lg animate-fadeInUp">
-      <nav className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+    <header className="sticky top-0 z-50 w-full bg-[var(--clr-surface)] shadow-lg border-b border-[var(--clr-border)] transition-all">
+      <nav className="max-w-screen-xl mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="ClarifyMe Home">
           <Image
-            src="/favicon.ico"
+            src="/logo.svg"
             alt="ClarifyMe Logo"
             width={32}
             height={32}
             className="group-hover:scale-110 transition-transform duration-150"
           />
-          <span className="font-bold text-lg tracking-tight text-white group-hover:text-[#2ED3B2] transition-colors duration-150">
+          <span className="font-bold text-lg tracking-tight text-[var(--clr-accent)] group-hover:text-[var(--clr-primary)] transition-colors duration-150">
             ClarifyMe
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8">
-          <Link
-            href="/clarify"
-            className="text-white hover:text-[#2ED3B2] transition-all font-semibold"
-          >
-            Clarify
-          </Link>
-          <Link
-            href="/journal"
-            className="text-white hover:text-[#2ED3B2] transition-all font-semibold"
-          >
-            Journal
-          </Link>
-          <Link
-            href="/me"
-            className="text-white hover:text-[#2ED3B2] transition-all font-semibold"
-          >
-            Me
-          </Link>
+        <div className="hidden md:flex gap-8 text-base font-medium">
+          <Link href="/clarify" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Clarify">Clarify</Link>
+          <Link href="/journal" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Journal">Journal</Link>
+          <Link href="/me" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] px-3 py-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" aria-label="Profile">Me</Link>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
           <button
             aria-label="Open Menu"
-            className="text-white hover:text-[#2ED3B2] focus:outline-none"
+            className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)] min-h-[48px]"
             onClick={() => setDrawerOpen(true)}
           >
-            <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M3 6h14M3 10h14M3 14h14" />
             </svg>
           </button>
@@ -64,41 +49,25 @@ export default function Header() {
         <div
           className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex justify-end"
           onClick={() => setDrawerOpen(false)}
+          role="dialog"
+          aria-modal="true"
         >
           <div
-            className="w-64 h-full bg-gradient-to-br from-[#6C2DC7] to-[#0F4C5C] shadow-lg animate-fadeInUp flex flex-col p-6 gap-6"
+            className="w-full max-w-md h-full bg-[var(--clr-surface)] shadow-lg flex flex-col p-6 gap-8"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               aria-label="Close Menu"
-              className="self-end text-white hover:text-[#2ED3B2] mb-4"
+              className="self-end text-[var(--clr-text)] hover:text-[var(--clr-primary)] mb-4 focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]"
               onClick={() => setDrawerOpen(false)}
             >
-              <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20">
+              <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M6 6l8 8M6 14L14 6" />
               </svg>
             </button>
-            <Link
-              href="/clarify"
-              className="text-white hover:text-[#2ED3B2] transition-all font-semibold text-lg"
-              onClick={() => setDrawerOpen(false)}
-            >
-              Clarify
-            </Link>
-            <Link
-              href="/journal"
-              className="text-white hover:text-[#2ED3B2] transition-all font-semibold text-lg"
-              onClick={() => setDrawerOpen(false)}
-            >
-              Journal
-            </Link>
-            <Link
-              href="/me"
-              className="text-white hover:text-[#2ED3B2] transition-all font-semibold text-lg"
-              onClick={() => setDrawerOpen(false)}
-            >
-              Me
-            </Link>
+            <Link href="/clarify" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Clarify">Clarify</Link>
+            <Link href="/journal" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Journal">Journal</Link>
+            <Link href="/me" className="text-[var(--clr-text)] hover:text-[var(--clr-primary)] transition-colors font-semibold text-lg px-3 py-2 rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)]" onClick={() => setDrawerOpen(false)} aria-label="Profile">Me</Link>
           </div>
         </div>
       )}

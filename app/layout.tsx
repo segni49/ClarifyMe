@@ -43,8 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ClarifyMe – Learn Smarter with AI",
-    description:
-      "AI-powered summaries, quizzes, and recommendations.",
+    description: "AI-powered summaries, quizzes, and recommendations.",
     images: ["https://clarifyme.ai/twitter-card.png"],
   },
   metadataBase: new URL("https://clarifyme.ai"),
@@ -55,17 +54,18 @@ export const metadata: Metadata = {
     "structured-data": `<script type="application/ld+json">${JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "ClarifyMe",
-      "url": "https://clarifyme.ai",
-      "description": "AI-powered learning assistant for topic clarification, quizzes, and curated resources.",
-      "applicationCategory": "EducationApplication",
-      "operatingSystem": "All",
-      "creator": {
+      name: "ClarifyMe",
+      url: "https://clarifyme.ai",
+      description:
+        "AI-powered learning assistant for topic clarification, quizzes, and curated resources.",
+      applicationCategory: "EducationApplication",
+      operatingSystem: "All",
+      creator: {
         "@type": "Organization",
-        "name": "ClarifyMe"
-      }
-    })}</script>`
-  }
+        name: "ClarifyMe",
+      },
+    })}</script>`,
+  },
 };
 
 export default function RootLayout({
@@ -76,7 +76,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="YOUR_GOOGLE_SITE_VERIFICATION" />
+        <meta
+          name="google-site-verification"
+          content="YOUR_GOOGLE_SITE_VERIFICATION"
+        />
         {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -84,28 +87,36 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "ClarifyMe",
-              "url": "https://clarifyme.ai",
-              "description": "AI-powered learning assistant for topic clarification, quizzes, and curated resources.",
-              "applicationCategory": "EducationApplication",
-              "operatingSystem": "All",
-              "creator": {
+              name: "ClarifyMe",
+              url: "https://clarifyme.ai",
+              description:
+                "AI-powered learning assistant for topic clarification, quizzes, and curated resources.",
+              applicationCategory: "EducationApplication",
+              operatingSystem: "All",
+              creator: {
                 "@type": "Organization",
-                "name": "ClarifyMe"
-              }
+                name: "ClarifyMe",
+              },
             }),
           }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-gradient-to-br from-[#0F4C5C] via-[#6C2DC7] to-[#1A1A1A] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans min-h-screen flex flex-col bg-[var(--clr-bg)] text-[var(--clr-text)] transition-all`}
       >
+        <a href="#main-content" className="skip-link sr-only focus:not-sr-only">Skip to main content</a>
         <Providers>
           <Header />
-          <main className="flex-1 w-full flex flex-col items-center justify-start animate-fadeInUp" role="main" aria-label="Main content">
-            <div className="w-full" role="region">
+          <main
+            id="main-content"
+            className="flex-1 w-full flex flex-col items-center justify-start px-4 py-8 max-w-screen-xl mx-auto gap-8 animate-fadeInUp"
+            role="main"
+            aria-label="Main content"
+          >
+            {/* Vertical rhythm and responsive container */}
+            <section className="w-full" role="region">
               {children}
-            </div>
+            </section>
           </main>
           <Footer />
         </Providers>

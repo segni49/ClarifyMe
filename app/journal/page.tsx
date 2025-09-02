@@ -16,29 +16,30 @@ export default function JournalPage() {
     quiz?: Quiz;
   };
 
-  const { data, error } = useSWR<{ entries: Entry[] }>(
-    "/api/journal",
-    fetcher
-  );
+  const { data, error } = useSWR<{ entries: Entry[] }>("/api/journal", fetcher);
   const entries = data?.entries || [];
 
   return (
-    <main className="w-full min-h-screen bg-gradient-to-br from-[#0F4C5C] via-[#6C2DC7] to-[#1A1A1A] flex flex-col items-center justify-start py-16 animate-fadeInUp">
-      <div className="w-full max-w-7xl flex flex-col gap-12 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-8 animate-fadeInUp text-center">
+    <main className="w-full min-h-screen bg-[var(--clr-bg)] flex flex-col items-center justify-start py-8 px-4 animate-fadeInUp">
+      <div className="w-full max-w-screen-xl flex flex-col gap-12">
+        <h1 className="text-4xl font-extrabold text-[var(--clr-accent)] text-center tracking-tight mb-8">
           My Journal
         </h1>
 
         {error && (
-          <div className="text-[#8B1E3F] animate-fadeInUp text-center text-lg">
+          <div className="text-[var(--clr-error)] text-center text-base font-medium animate-fadeInUp" role="alert">
             Failed to load journal.
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {entries.length === 0 ? (
-            <div className="text-white animate-fadeInUp text-center text-lg">
-              No entries yet.
+            <div className="text-[var(--clr-text-light)] text-center text-base font-medium animate-fadeInUp py-12">
+              <svg width="48" height="48" fill="none" viewBox="0 0 48 48" className="mx-auto mb-4" aria-hidden="true">
+                <rect x="8" y="12" width="32" height="24" rx="4" fill="var(--clr-bg-alt)" />
+                <path d="M16 20h16M16 24h16M16 28h8" stroke="var(--clr-border)" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              No entries yet.<br />Start clarifying topics to see your journal here.
             </div>
           ) : (
             entries.map((entry) => (

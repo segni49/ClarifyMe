@@ -53,63 +53,77 @@ export default function ClarifyPage() {
   }
 
   return (
-    <main className="w-full min-h-screen bg-gradient-to-br from-[#0F4C5C] via-[#6C2DC7] to-[#1A1A1A] flex flex-col items-center justify-start py-16 animate-fadeInUp">
-      <div className="w-full max-w-7xl flex flex-col gap-12 px-4">
+    <main className="w-full min-h-screen bg-[var(--clr-bg)] flex flex-col items-center justify-start py-8 px-4 animate-fadeInUp">
+      <div className="w-full max-w-screen-xl flex flex-col gap-12">
+        {/* Form */}
         <form
           onSubmit={handleClarify}
-          className="bg-white/80 rounded-2xl shadow-2xl p-10 flex flex-col gap-8 w-full max-w-2xl mx-auto animate-scaleIn"
+          className="bg-[var(--clr-surface)] rounded-xl shadow-lg p-8 flex flex-col gap-8 w-full max-w-2xl mx-auto border border-[var(--clr-border)] backdrop-blur-md"
+          aria-label="Clarify Topic Form"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#0F4C5C] mb-2 animate-fadeInUp text-center">
+          <h1 className="text-4xl font-extrabold text-[var(--clr-accent)] text-center tracking-tight mb-2">
             Clarify a Topic
           </h1>
+
+          {/* Topic Input */}
           <div className="relative">
             <input
               type="text"
               id="topic"
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              className="peer px-4 pt-6 pb-2 rounded-xl border border-[#0F4C5C] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6C2DC7] bg-[#FFFFFF] text-lg"
+              className="peer px-4 pt-6 pb-2 rounded-xl border border-[var(--clr-border)] w-full focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)] bg-[var(--clr-surface)] text-lg"
               required
               placeholder=" "
+              aria-label="Topic"
             />
             <label
               htmlFor="topic"
-              className="absolute left-4 top-2 text-[#4B5563] text-base transition-all peer-focus:text-[#6C2DC7] peer-focus:top-1 peer-valid:top-1 peer-valid:text-[#6C2DC7]"
+              className="absolute left-4 top-2 text-[var(--clr-text-light)] text-base transition-all peer-focus:text-[var(--clr-primary)] peer-focus:top-1 peer-valid:top-1 peer-valid:text-[var(--clr-primary)]"
             >
               Topic (e.g. Quantum Physics)
             </label>
           </div>
+
+          {/* Confusion Input */}
           <div className="relative">
             <textarea
               id="confusion"
               value={confusion}
               onChange={(e) => setConfusion(e.target.value)}
-              className="peer px-4 pt-6 pb-2 rounded-xl border border-[#0F4C5C] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6C2DC7] bg-[#FFFFFF] text-lg"
+              className="peer px-4 pt-6 pb-2 rounded-xl border border-[var(--clr-border)] w-full focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)] bg-[var(--clr-surface)] text-lg"
               required
               placeholder=" "
               rows={4}
+              aria-label="Confusion"
             />
             <label
               htmlFor="confusion"
-              className="absolute left-4 top-2 text-[#4B5563] text-base transition-all peer-focus:text-[#6C2DC7] peer-focus:top-1 peer-valid:top-1 peer-valid:text-[#6C2DC7]"
+              className="absolute left-4 top-2 text-[var(--clr-text-light)] text-base transition-all peer-focus:text-[var(--clr-primary)] peer-focus:top-1 peer-valid:top-1 peer-valid:text-[var(--clr-primary)]"
             >
               What confuses you?
             </label>
           </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
-            className="px-8 py-4 bg-[#6C2DC7] text-white rounded-xl font-bold shadow-lg hover:bg-[#2ED3B2] transition-all text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F4C5C] animate-scaleIn"
+            className="px-8 py-4 bg-[var(--clr-primary)] text-white rounded-xl font-bold shadow-lg hover:bg-[var(--clr-secondary)] transition-all text-lg focus-visible:ring-2 focus-visible:ring-[var(--clr-primary)] min-h-[48px]"
             disabled={loading}
+            aria-busy={loading ? "true" : "false"}
           >
             {loading ? "Clarifying..." : "Clarify"}
           </button>
+
+          {/* Error Message */}
           {error && (
-            <div className="text-[#8B1E3F] mt-2 animate-fadeInUp text-center text-lg">
+            <div className="text-[var(--clr-error)] mt-2 text-center text-base font-medium" role="alert">
               {error}
             </div>
           )}
         </form>
 
+        {/* Clarification Result */}
         {result && (
           <ClarifyCard
             topic={result.topic}
@@ -118,9 +132,10 @@ export default function ClarifyPage() {
           />
         )}
 
+        {/* Recommendations */}
         {recommendations.length > 0 && (
-          <section className="w-full mt-8 bg-gradient-to-br from-[#6C2DC7] to-[#1A1A1A] rounded-2xl shadow-2xl p-10 animate-fadeInUp">
-            <h2 className="text-3xl font-extrabold text-white mb-8 animate-fadeInUp text-center">
+          <section className="w-full mt-8 bg-[var(--clr-bg-alt)] rounded-xl shadow-lg p-8 backdrop-blur-md">
+            <h2 className="text-3xl font-extrabold text-[var(--clr-accent)] mb-8 text-center tracking-tight">
               Recommended Resources
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

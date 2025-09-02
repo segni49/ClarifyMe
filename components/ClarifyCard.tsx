@@ -1,4 +1,6 @@
+
 import React from "react";
+import Image from "next/image";
 
 interface ClarifyCardProps {
   topic: string;
@@ -10,36 +12,35 @@ interface ClarifyCardProps {
 
 export default function ClarifyCard({ topic, summary, quiz }: ClarifyCardProps) {
   return (
-    <section className="relative rounded-xl shadow-lg p-6 mb-8 bg-gradient-to-br from-[#0F4C5C] via-[#6C2DC7] to-[#1A1A1A] border-4 border-transparent hover:border-[#6C2DC7] transition-all duration-300 animate-fadeInUp w-full text-white">
-      <div className="absolute inset-0 rounded-xl pointer-events-none opacity-20 animate-fadeInUp" />
-      <div className="relative z-10 flex flex-col gap-4">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-wide animate-fadeInUp">
+    <section className="relative w-full rounded-xl shadow-lg p-6 mb-10 bg-[var(--clr-surface)] border border-[var(--clr-border)] hover:border-[var(--clr-primary)] transition-all duration-300 text-[var(--clr-text)] animate-fadeInUp">
+      <div className="relative z-10 flex flex-col gap-6">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight leading-tight text-[var(--clr-accent)]">
           {topic}
         </h2>
-        <p className="text-base sm:text-lg text-white/90 leading-relaxed animate-fadeInUp">
+        <p className="text-base sm:text-lg text-[var(--clr-text-light)] leading-relaxed">
           {summary}
         </p>
 
         {quiz && (
           <div className="mt-4">
-            <h3 className="text-lg font-bold text-[#2ED3B2] mb-2 animate-fadeInUp">
-              Quiz
+            <h3 className="text-lg font-bold text-[var(--clr-primary)] mb-4 flex items-center gap-2">
+              <Image src="/quiz-icon.svg" alt="Quiz Icon" width={24} height={24} className="inline-block" /> Quiz
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-6">
               {quiz.questions.map((q, idx) => (
                 <li
                   key={idx}
-                  className="bg-white/80 p-4 rounded-xl shadow hover:scale-105 transition-all duration-300 animate-fadeInUp text-[#1A1A1A]"
+                  className="bg-[var(--clr-bg-alt)] p-5 rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-200 text-[var(--clr-text)]"
                 >
-                  <div className="font-medium mb-2 text-[#0F4C5C]">
+                  <div className="font-semibold mb-2 text-[var(--clr-accent)] text-base">
                     {q.question}
                   </div>
-                  <ul className="ml-4 list-disc text-[#4B5563]">
-                    {q.options.map((opt: string, i: number) => (
+                  <ul className="ml-4 list-disc text-[var(--clr-text-light)] text-sm space-y-1">
+                    {q.options.map((opt, i) => (
                       <li key={i}>{opt}</li>
                     ))}
                   </ul>
-                  <div className="text-sm text-[#6C2DC7] mt-2">
+                  <div className="text-sm text-[var(--clr-primary)] mt-3">
                     Answer: <span className="font-semibold">{q.answer}</span>
                   </div>
                 </li>
